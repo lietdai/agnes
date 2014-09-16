@@ -1,20 +1,14 @@
 package me.liet.agens.tools;
 
-import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-
-import me.liet.agnes.core.System;
 import me.liet.agnes.core.Shell.OutputReceiver;
 import android.content.Context;
 import android.util.Log;
-import android.widget.ListView;
 
 
 
@@ -115,7 +109,26 @@ public class Ettercap extends Tool
 		}
 
 		public static String go(){
-			Log.v("go", requestURI+cookie+host+agent);		    
+			Log.v("go", requestURI+cookie+host+agent);
+			
+			File file = new File("/sdcard/agnes.log");
+		    try {  
+	            FileWriter filerWriter = new FileWriter(file, true);
+	            BufferedWriter bufWriter = new BufferedWriter(filerWriter);
+	            bufWriter.write(host);
+	            bufWriter.newLine();
+	            bufWriter.write("uri:"+requestURI);
+	            bufWriter.newLine();
+	            bufWriter.write("ua:"+agent);
+	            bufWriter.newLine();
+	            bufWriter.write("cookie:"+cookie);
+	            bufWriter.newLine();  
+	            bufWriter.close();  
+	            filerWriter.close();  
+	        } catch (IOException e) {  
+	            // TODO Auto-generated catch block  
+	            e.printStackTrace();  
+	        }  
 	        method ="";
 			protocol = "";// 协议版本   
 		    requestURL ="";   
