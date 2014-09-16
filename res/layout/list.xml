@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/child"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E3D25E"
+    android:orientation="horizontal" >
+
+    <!-- 若想隐藏id加入此属性: android:visibility="gone",这样做有点类似于Html中hidden域 -->
+
+    <TextView
+        android:id="@+id/httpId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000" />
+
+    <TextView
+        android:id="@+id/httpHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5px"
+        android:paddingLeft="50px"
+        android:paddingTop="5px"
+        android:text="No data"
+        android:textColor="#0000ff"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
